@@ -1,0 +1,60 @@
+##OpenGL GLIB
+
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+CubeMap 6 nvposx.bmp nvnegx.bmp  nvposy.bmp nvnegy.bmp   nvposz.bmp nvnegz.bmp
+
+CubeMap 7 nvposx.bmp nvnegx.bmp  nvposy.bmp nvnegy.bmp   nvposz.bmp nvnegz.bmp
+
+Vertex		gerstner.vert
+Fragment	gerstner.frag
+Program		GerstnerWave		\
+	uReflectUnit 6				\
+	uRefractUnit 7				\
+	uNoiseAmp <0. 0. 6.>		\
+	uNoiseFreq <0. 1. 20.>		\
+	uEta <1. 1.2 4.>			\
+	uMix <0. 1. 1.>				\
+	uWaveSpeed <1. 1. 10.>			\
+	uWaveAnimation <true>			\
+	uWaveA_OnOff <true>			\
+	uWaveA_X 	<0. 1. 1.>		\
+	uWaveA_Y 	<0. 0. 1.>		\
+	uWaveA_Amp 	<0. .5 1.>		\
+	uWaveA_Freq <0. 10. 100.>	\
+	uWaveB_OnOff <true>			\
+	uWaveB_X 	<0. 0. 1.>		\
+	uWaveB_Y 	<0. 1. 1.>		\
+	uWaveB_Amp 	<0. .25 1.>		\
+	uWaveB_Freq <0. 20. 100.>	\
+	uWaveC_OnOff <true>			\
+	uWaveC_X 	<0. 1. 1.>		\
+	uWaveC_Y 	<0. 1. 1.>		\
+	uWaveC_Amp 	<0. .15 1.>		\
+	uWaveC_Freq <0. 10. 100.>
+
+
+QuadXZ  -0.2  8.0  200  200
+
+Vertex texture.vert
+Fragment texture.frag
+Program Texture  uTexUnit 6
+
+Texture2D  6  nvposx.bmp
+QuadYZ 5. 5. 10 10
+
+Texture2D  6  nvnegx.bmp
+QuadYZ -5. 5. 10
+
+Texture2D  6  nvposy.bmp
+QuadXZ 5. 5. 10 10
+
+Texture2D  6  nvnegy.bmp
+QuadXZ -5. 5. 10 10
+
+Texture2D  6  nvposz.bmp
+QuadXY 5. 5. 10 10
+
+Texture2D  6  nvnegz.bmp
+QuadXY -5. 5. 10 10
